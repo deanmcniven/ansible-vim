@@ -1,0 +1,39 @@
+---
+- name: Install vim
+  become: true
+  apt:
+    name: vim
+    state: present
+
+- name: Create autoload directories
+  become: false
+  file:
+    path: "{{ local_user_homedir }}/.vim/autoload"
+    state: directory
+    recurse: yes
+
+- name: Create bundle directories
+  become: false
+  file:
+    path: "{{ local_user_homedir }}/.vim/bundle"
+    state: directory
+    recurse: yes
+
+- name: Install pathogen
+  become: false
+  copy:
+    content: "{{ lookup('url', 'https://tpo.pe/pathogen.vim', split_lines=False) }}"
+    dest: "{{ local_user_homedir }}/.vim/autoload/pathogen.vim"
+
+- name: Install NERDtree
+  become: false
+  git:
+    repo: https://github.com/scrooloose/nerdtree.git
+    dest: "{{ local_user_homedir }}/.vim/bundle/nerdtree"
+
+- name: Configure .vimrc
+  become: false
+  copy:
+    src: files/vimrc
+    dest: "{{ local_user_homedir }}/.vimrc"
+    mode: 0755
