@@ -31,6 +31,12 @@
     repo: https://github.com/scrooloose/nerdtree.git
     dest: "{{ local_user_homedir }}/.vim/bundle/nerdtree"
 
+- name: Install Vim Fugitive
+  become: false
+  git:
+    repo: https://github.com/tpope/vim-fugitive.git
+    dest: "{{ local_user_homedir }}/.vim/bundle/vim-fugitive"
+
 - name: Configure .vimrc
   become: false
   copy:
