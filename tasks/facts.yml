@@ -1,0 +1,17 @@
+---
+- name: Get vim-go release info
+  become: false
+  uri:
+    url: https://api.github.com/repos/fatih/vim-go/releases/latest
+    headers:
+      Accept: 'application/vnd.github.v3+json'
+    return_content: yes
+  register: vim_go_release_info
+  changed_when: false
+
+- name: Get latest vim-go tag
+  become: false
+  set_fact:
+    vim_go_version: "{{ vim_go_release_info.json.tag_name }}"
+  changed_when: false
+

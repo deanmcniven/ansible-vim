@@ -11,6 +11,13 @@
     repo: https://github.com/tpope/vim-fugitive.git
     dest: "{{ local_user_homedir }}/.vim/bundle/vim-fugitive"
 
+- name: Install Vim Go
+  become: false
+  git:
+    repo: https://github.com/fatih/vim-go.git
+    version: "{{ vim_go_version }}"
+    dest: "{{ local_user_homedir }}/.vim/bundle/vim-go"
+
 - name: Configure .vimrc
   become: false
   copy:
