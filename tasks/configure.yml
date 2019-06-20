@@ -20,7 +20,7 @@
 
 - name: Configure .vimrc
   become: false
-  copy:
-    src: files/vimrc
+  template:
+    src: vimrc.j2
     dest: "{{ local_user_homedir }}/.vimrc"
     mode: 0755

@@ -65,3 +65,9 @@ autocmd InsertLeave * redraw!
 highlight VisualNOS ctermbg=236
 highlight Visual ctermbg=236
 highlight CursorLine ctermbg=236
+
+{% if vim_configure_note_taking_commands %}
+" Extra Commands
+command D :normal iDate: <C-R>=strftime('%d-%m-%Y')<C-M><CR>----------------<CR><ESC>
+command S :normal i<CR>================================================================================================================================================================================================================<CR><CR><ESC>
+{% endif %}
