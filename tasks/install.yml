@@ -22,6 +22,6 @@
 - name: Install pathogen
   become: false
   copy:
-    content: "{{ lookup('url', 'https://tpo.pe/pathogen.vim', split_lines=False) }}"
+    content: "{{ lookup('url', 'https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim', split_lines=False) }}"
     dest: "{{ local_user_homedir }}/.vim/autoload/pathogen.vim"
 
