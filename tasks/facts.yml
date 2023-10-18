@@ -15,11 +15,6 @@
     vim_go_version: "{{ vim_go_release_info.json.tag_name }}"
   changed_when: false
 
-- name: Check Homebrew Installed
-  stat:
-    path: /usr/local/bin/brew
-  register: homebrew_installed
-
 - name: Fail if Homebrew missing (MacOSX)
   fail:
     msg: Homebrew is not installed on this system
