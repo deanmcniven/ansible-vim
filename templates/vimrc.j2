@@ -71,3 +71,7 @@ highlight CursorLine ctermbg=236
 command D :normal iDate: <C-R>=strftime('%d-%m-%Y')<C-M><CR>----------------<CR><ESC>
 command S :normal i<CR>================================================================================================================================================================================================================<CR><CR><ESC>
 {% endif %}
+
+{% if homebrew_installed.stat.exists %}
+set backspace=2
+{% endif %}
