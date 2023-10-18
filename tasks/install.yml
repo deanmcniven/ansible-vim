@@ -8,6 +8,7 @@
     - ansible_facts['distribution'] == "Ubuntu"
 
 - name: Install vim (MacOSX)
+  become: false
   homebrew:
     name: vim
     state: present
