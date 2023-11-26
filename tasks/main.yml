@@ -1,4 +1,4 @@
 ---
-- include: facts.yml
-- include: install.yml
-- include: configure.yml
+- import_tasks: facts.yml
+- import_tasks: install.yml
+- import_tasks: configure.yml
